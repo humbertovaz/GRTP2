@@ -17,9 +17,19 @@ function totalSpace(blocksize,size) {
     return size*blocksize/1000000000 //Bytes to GB
 }
 
+var options = {
+  port: 161,
+  retries: 1,
+  timeout: 50000,
+  transport: "udp4",
+  trapPort: 162,
+  version: snmp.Version1,
+  idBitsSize: 16
+};
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    var session = snmp.createSession("127.0.0.1", "public");
+    var session = snmp.createSession("127.0.0.1", "public",options);
     //          ( .4 -> Unidade da particao, .5 -> Tamamanho da particao, .6 -> Size Used) 
     var oids = ["1.3.6.1.2.1.25.2.3.1.4.31", "1.3.6.1.2.1.25.2.3.1.5.31","1.3.6.1.2.1.25.2.3.1.6.31", // root 
                 "1.3.6.1.2.1.25.2.3.1.4.32", "1.3.6.1.2.1.25.2.3.1.5.32","1.3.6.1.2.1.25.2.3.1.6.32", // /dev
