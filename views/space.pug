@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    table(style="width:100%")
+        tr
+            th Partição
+            td /
+            td /dev
+            td /net
+            td /home
+        tr
+            th Size(GB)
+            td #{metrics[0]}
+            td #{metrics[1]}
+            td #{metrics[2]}
+            td #{metrics[3]}
+        tr
+            th Free(%)
+            td #{metrics[4]}
+            td #{metrics[5]}
+            td #{metrics[6]}
+            td #{metrics[7]}
