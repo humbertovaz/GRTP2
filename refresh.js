@@ -1,5 +1,3 @@
-function timedRefresh(timeoutPeriod) {
-	setTimeout("location.reload(true);",timeoutPeriod);
-}
-
-window.onload = timedRefresh(5000);
+setTimeout(function(){
+    location = ''
+  },5000)
